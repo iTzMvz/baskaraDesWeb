@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baskara</title>
+</head>
+<body>
+    <form>
+        <label for="a">A</label>
+        <input type="number" id="a">
+    </form>
+    <form>
+        <label for="b">B</label>
+        <input type="number" id="b">
+    </form>
+    <form>
+        <label for="c">C</label>
+        <input type="number" id="c">
+    </form>
+    <button onclick="calcularX()">Calcular</button>
+     <div id="resultado"> </div>
+
+    <script>
+        function calcularX (){
+        const a = document.getElementById('a').value;
+        const b = document.getElementById('b').value;
+        const c = document.getElementById('c').value;
+
+        const delta = (b ** 2) - 4 * a * c
+        const baskaraMais = (- b + Math.sqrt(delta)) / (2 * a)
+        const baskaraMenos = (- b - Math.sqrt(delta)) / (2 * a)
+
+        if (delta < 0){
+            document.getElementById('resultado').innerHTML = "Não existe"
+        } else if (delta === 0 ){
+            document.getElementById('resultado').innerHTML = `Existe um x: ${baskaraMais.toFixed(2)}`
+        }else{
+            const primerioGrauMenos = b * -1 - Math.sqrt(delta)
+            const primerioGrauMais = b * -1 + Math.sqrt(delta)
+        document.getElementById('resultado').innerHTML = `valor de x1: ${primerioGrauMais.toFixed(2)} </br> valor de x2: ${primerioGrauMenos.toFixed(2)}`
+        }
+    }
+    </script>
+    
+</body>
+</html>
